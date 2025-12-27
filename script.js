@@ -22,17 +22,21 @@ async function getData(username){
     try{
         const rawData = await fetch(url+username);
         const processedData = await rawData.json();
-        console.log(processedData);
+        if(processedData.status == "404"){
+            throw("Error: 404!");
+        }
         return makeLiveChanges(processedData);
     }
-    catch{
-        // SearchBox Shake Animation
+    catch(err){
+        console.log(err);
+        not_found();
     }
 }
 
 const makeLiveChanges = (data) => {
     show(github_link);
     show(container1);
+    show(created.parentElement);
 
     change_pfp(data.avatar_url);
     change_username(data.name, data.login);
@@ -93,81 +97,84 @@ const change_github_link = (val) => {
     github_link.setAttribute('href', val);
 }
 
+// Working
 const change_repo_count = (val) => {
     repo_count.innerText = val;
 }
 
+// Working
 const change_followers_count = (val) => {
-    show(followers_count);
     followers_count.innerText = val;
 }
 
+// Working
 const change_following_count = (val) => {
-    show(following_count);
     following_count.innerText = val;
 }
 
 const change_place = (val) => {
     if(val!=="" && val!==null){
-        show(place);
+        show(place.parentElement);
         place.innerText = val;
     }else{
-        hide(place);
+        hide(place.parentElement);
     }
 }
 
 const change_company = (val) => {
     if(val!=="" && val!==null){
-        show(company);
+        show(company.parentElement);
         company.innerText = val;
     }else{
-        hide(company);
+        hide(company.parentElement);
     }
 }
 
 const change_email = (val) => {
     if(val!=="" && val!==null){
-        show(email);
+        show(email.parentElement);
         email.innerText = val;
     }else{
-        hide(email);
+        hide(email.parentElement);
     }
 }
 
 const change_x = (val) => {
     if(val!=="" && val!==null){
-        show(x);
+        show(x.parentElement);
         x.innerText = val;
     }else{
-        hide(x);
+        hide(x.parentElement);
     }
 }
 
 const change_website = (val) => {
     if(val!=="" && val!==null){
-        show(website);
+        show(website.parentElement);
         website.innerText = val;
     }else{
-        hide(website);
+        hide(website.parentElement);
     }
 }
 
 const change_created = (val) => {
-    if(val!=="" && val!==null){
-        show(created);
-        created.innerText = val;
-    }else{
-        hide(created);
-    }
+    created.innerText = val;
+}
+
+const not_found = () => {
+    searchbox.classList.add('error');
+    setTimeout(() => {
+        searchbox.classList.remove('error');
+    }, 1000);
 }
 
 // Triggers Execution
 const main = () => {
     const searchboxValue = searchbox.value;
     if(searchboxValue.trim()){
-        const data = getData(searchboxValue);
+        getData(searchboxValue);
     }else{
-        // SearchBox Shake Animation
+        not_found();
     }
 }
 

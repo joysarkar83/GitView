@@ -6,6 +6,7 @@
     box-sizing: border-box;
     color: var(--text);
     font-family: "Google Sans Code", monospace;
+    transition: all 0.1s ease-in;
 }
 
 :root{
@@ -18,10 +19,6 @@
 
 body{
     background-color: var(--background);
-}
-
-.hidden{
-    display: none;
 }
 
 nav{
@@ -62,6 +59,14 @@ nav{
     font-size: 1.15rem;
 }
 
+.searchbox:hover{
+    box-shadow: 0px 0px 8px 5px var(--stroke);
+}
+
+.searchbox:active{
+    border: 2px solid var(--stroke);
+}
+
 .search_btn{
     height: 3rem;
     width: 3rem;
@@ -71,6 +76,14 @@ nav{
 
 .search_btn > img{
     height: 25px;
+}
+
+.search_btn:hover{
+    transform: scale(1.05);
+}
+
+.search_btn:active{
+    opacity: 0.8;
 }
 
 main{
@@ -289,4 +302,33 @@ main{
     .name{
         font-size: 1.5rem;
     }
+}
+
+.error{
+    color: var(--text);
+    background-color: rgba(255, 0, 0, 0.414);
+    border: 2px solid red;
+    animation: boxShake 0.6s linear 0s 1 forwards;
+}
+
+@keyframes boxShake{
+    20%{
+        transform: translateX(-3px);
+    }
+    40%{
+        transform: translateX(3px);
+    }
+    60%{
+        transform: translateX(-3px);
+    }
+    80%{
+        transform: translateX(3px);
+    }
+    100%{
+        transform: translateX(-3px);
+    }
+}
+
+.hidden{
+    display: none;
 }
