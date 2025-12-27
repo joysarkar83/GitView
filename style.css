@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--text);
+    font-family: "Google Sans Code", monospace;
+}
+
+:root{
+    --background: #010409;
+    --tabs: #0C1117;
+    --stroke: #3C444C;
+    --text: #F1F7FC;
+    --button: #238737;
+}
+
+body{
+    background-color: var(--background);
+}
+
+.hidden{
+    display: none;
+}
+
+nav{
+    /* height: 4rem; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--stroke);
+    padding: 0rem 1.5rem;
+}
+
+.nav_elems{
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.site_logo{
+    height: 3rem;
+    border-radius: 50%;
+}
+
+.site_name{
+    font-weight: 500;
+    font-size: 150%;
+}
+
+.searchbox{
+    width: 18rem;
+    height: 2.5rem;
+    color: var(--background);
+    border-radius: 30px;
+    border: 2px solid var(--stroke);
+    padding: 20px;
+    font-size: 1.15rem;
+}
+
+.search_btn{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: 2px solid var(--stroke);   
+}
+
+.search_btn > img{
+    height: 25px;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.main_elems{
+    width: 50%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.pfp{
+    height: 20rem;
+    border-radius: 50%;
+    margin-left: 2rem;
+}
+
+.name{
+    font-size: 2rem;
+    margin-left: 4rem;
+}
+
+.bio{
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    background-color: var(--tabs);
+    border: 2px solid var(--stroke);
+    padding: 2rem;
+    width: 90%;
+}
+
+.github_link{
+    margin-left: 2rem;
+    padding: 0.5rem 0.8rem;
+    background-color: var(--button);
+    text-decoration: none;
+}
+
+.github_link > img{
+    height: 1rem;
+}
+
+.infoContainer1{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.infobox1{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 2rem;
+    padding: 1rem;
+    background-color: var(--tabs);
+    border: 2px solid var(--stroke);
+    height: 10rem;
+}
+
+.infobox_title{
+    font-size: 1.15rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.info_num{
+    font-weight: 600;
+    font-size: 5rem;
+}
+
+.infoContainer2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin-left: 2rem;
+    gap: 1rem;
+}
+
+.infobox2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.3rem;
+    background-color: var(--tabs);
+    border: 2px solid var(--stroke);
+    padding: 0.6rem 1rem;
+    width: 93%;
+}
+
+@media (max-width: 1600px) {
+    .main_elems{
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 1300px) {
+    main{
+        flex-direction: column;
+    }
+
+    .github_link{
+        margin-left: 0;
+    }
+
+    .nav{
+        height: 4rem;
+    }
+
+    .main_elems{
+        width: 100%;
+        align-items: center;
+    }
+
+    .pfp, .bio, .name, .infoContainer2{
+        margin: 0;
+        text-align: center;
+    }
+
+    .infoContainer2{
+        margin: auto;
+    }
+
+    .infobox2{
+        width: 94%;
+        margin: auto;
+    }
+}
+
+@media (max-width: 700px) {
+    .infobox1{
+        width: 94%;
+        margin: auto;
+    }
+
+    .site_logo{
+        height: 2rem;
+    }
+
+    .nav_elems{
+        gap: 1rem;
+    }
+
+    .site_name{
+        font-weight: 500;
+        font-size: 110%;
+    }
+
+    .pfp{
+        height: 15rem;
+    }
+
+    .bio{
+        font-size: 1.15rem;
+        padding: 1rem;
+        width: 90%;
+    }
+
+    .searchbox{
+        font-size: 1rem;
+        height: 2rem;
+        width: 10rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .infoContainer1{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    nav{
+        flex-direction: column;
+        padding: 1rem 0;
+        gap: 0.5rem;
+    }
+
+    .nav_elems{
+        gap: 0.5rem;
+        height: auto;
+    }
+
+    .searchbox{
+        font-size: 0.9rem;
+        height: 1.5rem;
+        width: 80%;
+        padding: 18px;
+    }
+
+    .search_btn{
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+        border: 2px solid var(--stroke);   
+    }
+
+    .search_btn > img{
+        height: 20px;
+    }
+
+    .pfp{
+        height: 12rem;
+    }
+
+    .name{
+        font-size: 1.5rem;
+    }
+}
