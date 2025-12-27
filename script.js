@@ -182,8 +182,8 @@ search_btn.addEventListener('click', () =>{
     main();
 });
 
-addEventListener('keyup', (event) => {
-    if(event.code == "Enter"){
+searchbox.addEventListener('keyup', (event) => {
+    if (event.key === "Enter") {
         main();
     }
 });

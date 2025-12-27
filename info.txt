@@ -1,3 +1,0 @@
-# URLs
-
-Main: https://api.github.com/users/<username>
